@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NWS Weather Alerts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .alert {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>National Weather Service Alerts</h1>
+    <div id="alerts-container"></div>
+
+    <script>
+        const alertsContainer = document.getElementById('alerts-container');
+
+        fetch('https://alerts.weather.gov/cap/wwaatmget.php?x=OKC119')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, 'text/xml');
+                const entries = xmlDoc.getElementsByTagName('entry');
+
+                for (let i = 0; i < entries.length; i++) {
+                    const title = entries[i].getElementsByTagName('title')[0].textContent;
+                    const summary = entries[i].getElementsByTagName('summary')[0].textContent;
+                    
+                    const alertDiv = document.createElement('div');
+                    alertDiv.classList.add('alert');
+                    alertDiv.innerHTML = `<h2>${title}</h2><p>${summary}</p>`;
+                    
+                    alertsContainer.appendChild(alertDiv);
+                }
+            })
+            .catch(error => console.error('Error fetching NWS alerts:', error));
+    </script>
+</body>
+</html>
