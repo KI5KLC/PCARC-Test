@@ -199,5 +199,9 @@ footer {
   clear: both;
 }
 
+ul#remove {
+  list-style-type: none;
+  padding: 0;
+}
 
 
