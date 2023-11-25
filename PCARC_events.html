@@ -6,26 +6,12 @@
     <title>PCARC Events and Meetings</title>
     <link rel="stylesheet" href="./styles.css">
     <style>
-        *{
-            font-family: Arial, Helvetica, sans-serif;
-            box-sizing: border-box;}
-          table {
-            border-collapse: collapse;}
-          table td {
-            padding: 10px;
-            border: 1px solid #000; }
+        
     </style>
 </head>
 <body>
     <header>
-        <div class="clearfix">
-        <div class="float-container3">
-        <img src= "./Images/pcarcLogo.jpg " style="float: left;width:100px; height:100px">
-    </div>    
-    <center>
-        <h1>   Pittsburg County Amateur Radio Club (W5CUQ)</h1>
-    </center>
-        </div>
+        <iframe src="Header.html" width="100%" height="105%" frameborder="0" scrolling="no"></iframe>
     </header>
     <nav>
         <a href= "index.html">Home</a>
@@ -51,63 +37,33 @@
                     If you have any questions or would like to get involved with our club, please don't hesitate to <a href="./PCARC_contact.html">contact us.</a>
                 </p>
             </div> 
-            <div class="border-container">
-                <h2>2024 Scheduled Events And Meeting Dates</h2>
+            <div class="border-container4">
+                <h2>2023 Scheduled Events And Meeting Dates</h2>
                
                     All club meetings are scheduled for 7:00 PM unless otherwise posted on our club facebook. Test sessions will follow after as long as they have been requested in advance.
-                 <!-- DISPLAY CSV HERE-->
-    <table id="table"> </table>
-    <script>
-        window.onload = () => {
-            //HTML TABLE
-            var table = document.getElementById("table");   
-
-            // AJAX FETCH CSV
-            fetch ("Events.csv")
-            .then(res => res.text())
-            .then(csv => {
-                //CLEAR HTML TABLE
-                table.innerHTML = "";
-
-                //SPLIT INTO ROWS
-                let rows = csv.split(";");
-
-                //LOOP THROUGH ROWS + SPLIT COLUMNS
-                for (let row of rows) { 
-                    let cols = row.match(/(?:\"([^\"]*(?:\"\"[^\"]*)*)\")|([^\",]+)/g);
-                    if (cols != null) {
-                        let tr = table.insertRow();
-                        for (let col of cols){
-                            let td = tr.insertCell();
-                            td.innerHTML = col.replace(/(^"|"$)/g, "");
-                        }
-                    }
-                }
-            });
-        };
-    </script>   
+                    <ul id="remove">
+                        <li>January   5, 2023 - Meeting  </li>               
+                        <li>February  2, 2023 - Meeting  </li>
+                        <li>March     2, 2023 - Meeting  </li>
+                        <li>April     6, 2023 - Meeting  </li>
+                        <li>May       4, 2023 - Meeting  </li>
+                        <li>June      8, 2023 - Meeting  </li>
+                        <li>July      6, 2023 - Meeting  </li>
+                        <li><a href="http://www.arrl.org/field-day" target="_blank">July 25, 2023 - Field Day</a>  (<a href="./PCARC_fieldDay.html">Pictures from previous Field Days)</a></li>
+                        <li>August    3, 2023 - Meeting  </li>
+                        <li>September 7, 2023 - Meeting & Test Session </li>
+                        <li>October   5, 2023 - Meeting & Test Session </li>
+                        <li>November  2, 2023 - Meeting & Test Session</li>
+                        <li>December  7, 2023 - Meeting  </li>
+                    </ul> 
                 <p>
                     <a href="http://www.arrl.org/contests" target="_blank">ARRL Contests</a>    
                 </p>
             </div>                 
         </center>
     </main>
-
     <footer>
-        <div class="float-container3">
-            <img src= "./Images/emcom.jpg " style="float: left;width:100px; height:100px">
-        </div>
-        <center>
-        <p>
-            &copy; [2023] PCARC All rights reserved.
-        </p>
-        <p>
-            Pittsburg County Amateur Radio Club Inc. McAlester, Oklahoma
-        </p>
-        <p>
-            Established 1954. A 501(c)(3) Organization
-        </p>
-    </center>
+        <iframe src="Footer.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
     </footer>
 </body>
 </html>
