@@ -91,13 +91,9 @@ footer {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-}
-
 .carousel {
-  width: 100vw;
-  height: 75vh;
+  width: 50vw;
+  height: 100vh;
   position: relative;
 }
 
@@ -109,16 +105,18 @@ body {
 
 .slide {
   position: absolute;
-  inset: 0;
+  inset: 2;
   opacity: 0;
   transition: 200ms opacity ease-in-out;
   transition-delay: 200ms;
+  width: 25vw;
+  height: 75vh;
 }
 
 .slide > img {
   display: block;
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -155,11 +153,11 @@ body {
 }
 
 .carousel-button.prev {
-  right: rem;
+  left: 1rem;
 }
 
 .carousel-button.next {
-  left: 17rem;
+  right: 1rem;
 }
 
 .alert {
@@ -206,13 +204,4 @@ ul#remove {
   padding: 0;
 }
 
-iframe {
-  width:"100%";
-  height:"1000px";
-}
 
-@media only screen and (max-width: 768px) {
-  .carousel-button {
-    font-size: 3rem;
-  }
-}
