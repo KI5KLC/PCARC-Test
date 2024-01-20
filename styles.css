@@ -96,8 +96,8 @@ body {
 }
 
 .carousel {
-  width: 50vw;
-  height: 135vh;
+  width: 500px;
+  height: 1000px;
   position: relative;
 }
 
