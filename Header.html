@@ -1,150 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="keywords" content="Pittsburg County Amateur Radio Club"/>
-         <meta name="keywords" content="Pittsburg County Amateur Radio Club" />
-         <meta name="keywords" content="Pittsburg County" />
-         <meta name="keywords" content="PCARC" />
-         <meta name="keywords" content="W5CUQ" />
+   <head>
+      <link rel="stylesheet" href="./styles.css">
+      <style>    
+      </style>
+   </head>
 
-        <title>PCARC (W5CUQ)</title>
-        <link rel="stylesheet" href="./styles.css">
-        <style>    
-        </style>
-    </head>
-
-    <body>
-        <header>
-            <div class="clearfix">
-            <div class="float-container3">
+   <body>
+      <header>
+         <div class="clearfix">
+         <div class="float-container3">
             <img src= "./Images/pcarcLogo.jpg " style="float: left;width:200%; height:200%">
-        </div>    
-        <right>
+         </div>    
+         <right>
             <h1>   Pittsburg County Amateur Radio Club (W5CUQ)</h1>
-        </right>
-            </div>
-        </header>
+         </right>
+         </div>
+      </header>
     
-        <nav>
-            
-            <a href= "index.html">Home</a>
-            <a href="PCARC_meetings.html">Club Meetings</a>
-            <a href="PCARC_about.html">About PCARC</a>
-            <a href="PCARC_contact.html">Contact Us</a>
-            <a href="PCARC_repeaters.html">Club Repeaters</a>
-            <a href="PCARC_etiquette.html">Repeater Etiquette</a>
-            <a href="PCARC_support.html">Support PCARC</a>
-            <a href="PCARC_membership.html">Membership</a>
-            <a href="PCARC_constitution.html">PCARC Constitution</a>
-            <a href="PCARC_aprs.html">APRS</a>
-            <a href="PCARC_testing.html">Testing</a>
-            <a href="PCARC_events.html">Events and Meetings</a>  
-        </nav>
+      <nav>
+      </nav>
 
-    <main>
-        <center>
-            <h3 justification>The PCARC would like to thank: <br>
-            The McAlester/Pittsburg County Office Of Emergency Management <br>
-            The Kiamichi Electric Cooperative <br>
-            and Muskogee Communications for continued support.</h3>
-        
+      <main>
+      </main>
 
-        <div class="border-container2">
-            <h2>Meeting Info:</h2>
-            <p> PCARC meets on the 1st Thursday of each month at 7:00 pm.​</p>
-            <p>Meetings are held at: <br>
-                Pittsburg County Emergency Operations Center (EOC) <br>
-                705 EOC DRIVE, McAlester, OK 74501
-            </p>
-            <h2>Next Meeting in:</h2>
-            <!-- Display the countdown timer in an element -->
-            <p id="demo" style="color: rgb(184, 8, 8);"></p>
-            <p><a href="PCARC_testing.html">Licensing & Testing Information</a></p>         
-        </div> 
-        
-        <div class="border-container4">
-            <h2>Upcoming Events</h2>
-            <p>
-                <ul id="remove">
-                    <li>September 7, 2023 - Meeting</li>
-                </ul>
-            </p>
-        </div>
-    
-        <div class="clearfix">
-            <div>
-                <div class="border-container">     
-                    
-                    <h1>Active National Weather Service Alerts for Pittsburg County</h1>
-                
-                    <div id="alerts-container"> </div>
-                    <script>
-                        const alertsContainer = document.getElementById('alerts-container');
-                        fetch('https://alerts.weather.gov/cap/wwaatmget.php?x=OKC119')
-                        .then(response => response.text())
-                        .then(data => {
-                            const parser = new DOMParser();
-                            const xmlDoc = parser.parseFromString(data, 'text/xml');
-                            const entries = xmlDoc.getElementsByTagName('entry');
-                            for (let i = 0; i < entries.length; i++) {
-                                const title = entries[i].getElementsByTagName('title')[0].textContent;
-                                const summary = entries[i].getElementsByTagName('summary')[0].textContent;
-                                const alertDiv = document.createElement('div');
-                                alertDiv.classList.add('alert');
-                                alertDiv.innerHTML = `<h2>${title}</h2><p>${summary}</p>`;
-                                alertsContainer.appendChild(alertDiv);
-                            }
-                        })
-                        .catch(error => console.error('Error fetching NWS alerts:', error));
-                    </script>
-                </div>
-            </div>
-        </div>  
-          </center>
-        <script>
-            // Set the date we're counting down to
-            var countDownDate = new Date("Nov 2, 2023 19:00:00").getTime();
-            // Update the count down every 1 second
-            var x = setInterval(function() {
-                // Get today's date and time
-                var now = new Date().getTime();
-                // Find the distance between now and the count down date
-                var distance = countDownDate - now;
-                // Time calculations for days, hours, minutes and seconds
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                // Display the result in the element with id="demo"
-                document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-                // If the count down is finished, write some text
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("demo").innerHTML = "EXPIRED";
-                }
-            }, 1000);
-        </script>
-    </main>
-
-    <footer>
-        <div class="float-container3">
-            <img src= "./Images/emcom.jpg " style="float: left;width:100px; height:100px">
-        </div>
-        <center>
-        <p>
-            &copy; [2023] PCARC All rights reserved.
-        </p>
-        <p>
-            Pittsburg County Amateur Radio Club Inc. McAlester, Oklahoma
-        </p>
-        <p>
-            Established 1954. A 501(c)(3) Organization
-        </p>
-    </center>
-    </footer>
-</body>
+      <footer>
+      </footer>
+   </body>
 </html>
 
 <!-- Display the countdown timer in an element -->
